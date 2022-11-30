@@ -27,6 +27,13 @@ public class AfficheCategories extends Menu {
         int chosenCategory = Navigator.getNextChoice(indexCategory+1);
         System.out.println("Souhaitez-vous regarder la liste des restaurants pour cette catégorie de cuisine ? [Y: yes / N:No]");
         if (Navigator.getNextLine().equals("Y")) {
+        }
+        else {
+            System.out.println("Revenir en arrière ? [Y: yes / N:No]");
+            if (Navigator.getNextLine().equals("Y")) {
+                Navigator.reRoll();
+                return;
+            }
             Navigator.pushMenu(new AfficheCategories(categories.get(chosenCategory)));
         }
     }
