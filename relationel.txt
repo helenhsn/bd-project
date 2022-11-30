@@ -1,0 +1,30 @@
+_ : clé
+tabulation : sous-entité
+
+Entités normales:
+
+Restaurants(_emailResto, nomResto, numResto, nbPlacesAssises, textePresentation)
+CatégorieCuisine(_nom)
+TypeCommandesResto(_type)
+Allergène(_nom)
+Horaires(_horaireOuverture, _jourOuverture, heureFermeture)
+IdClient(_idClient)
+# Pas 2FN Client(_idClient, _emailClient, mdp, nomClient, prenomClient, adresseClient)
+Evaluations( _dateEvaluation, _heureEvaluation, _avis, _noteEval)
+
+InformationLivraison(emailResto, idClient, date, heure, _texte)
+
+Entités faibles:
+
+Plat(_emailResto, _idPlat, nom, description, prix)
+Commandes(_emailResto, _idClient, _date, _heure, contenu, prixFinal, statut)
+	CommandeLivraison(_emailResto, _idClient, _date, _heure, adresseLivraison, heureLivraison)
+	CommandeSurPlace(_emailResto, _idClient, _date, _heure, nbPersonnesSurPlace, heureArrivee)
+
+estCatégorieFilleDe(_nomFille, nomMère)
+APourAllergène(_idPlat, _nomAllergène)
+APourTypeCommande(_type, _emailResto) 
+LienPlatCommande(_emailResto, _idClient, _date, _heure, _idPlat, quantite)
+LienCatRestaurant(_emailResto, _nom)
+LienRestoHoraire(_emailResto, _horaireOuverture)
+APourEvaluation(_emailResto, _idClient, _date, _heure, _dateEvaluation, _heureEvaluation, _avis, _noteEval)
