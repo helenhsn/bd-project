@@ -23,22 +23,35 @@ public class Table {
         }
     }
 
+    /**
+     * @param name Table name
+     * @param attributes attributes to retreive
+     * @return the selected attributes from each entry
+     */
     public static ResultSet getAttributes(String name, Collection<String> attributes) {
+        return getAttributes(name, attributes, null);
+    }
+
+
+    /**
+     * @param name Table name
+     * @param attributes attributes to retreive
+     * @param condition an SQL condition
+     * @return the selected attributes from each entry verifying the given condition
+     */
+    public static ResultSet getAttributes(String name, String attributes, String condition) {
+
         StringBuilder query = new StringBuilder();
-        query.append("select ");
-
-        // Attribute selection
-        StringBuilder attributesList = new StringBuilder();
-        for (String attribute: attributes) {
-            attributesList.append(attribute);
-            attributesList.append(",");
-        }
-
-        query.append(attributesList.substring(0, attributesList.length() - 1));
+        query.append("SELECT ");
+        query.append(" ").append(attributes == null ? "*" : attributes).append(" ");
 
         // Table selection
-        query.append(" from ");
-        query.append(name.toString());
+        query.append(" FROM ");
+        query.append(name);
+
+        if (condition != null) {
+            query.append(" WHERE ").append(condition);
+        }
 
         return sendQuery(query.toString());
     }
@@ -51,3 +64,4 @@ public class Table {
 
     private static Connection connection;
 }
+
