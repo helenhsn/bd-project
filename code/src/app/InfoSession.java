@@ -1,6 +1,9 @@
 package app;
 
+import data.Plat;
+
 import java.sql.Connection;
+import java.util.HashMap;
 
 public class InfoSession {
     private static Connection connection;
@@ -40,6 +43,7 @@ public class InfoSession {
 
     private static class InfoCommande {
         private String emailResto;
+        private HashMap<Integer, Plat> platsChoisis;
         public InfoCommande(String emailResto) {
             this.emailResto = emailResto;
         }

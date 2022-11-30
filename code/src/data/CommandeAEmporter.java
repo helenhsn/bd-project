@@ -3,7 +3,6 @@ package data;
 public class CommandeAEmporter {
 
     public CommandeAEmporter() {
-        super("Commandes"); // nom de la table
     }
 
     // Ajouter getters et setters ...

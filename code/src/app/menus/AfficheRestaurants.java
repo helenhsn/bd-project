@@ -2,6 +2,8 @@ package app.menus;
 
 import app.InfoSession;
 import app.Navigator;
+import data.Categorie;
+
 import java.sql.*;
 public class AfficheRestaurants extends Menu {
 
@@ -18,7 +20,19 @@ public class AfficheRestaurants extends Menu {
 
         int answer = Navigator.getNextChoice(3);
 
-        System.out.println(); //TODO afficher la requête SQL correspondante -> indexer les restaurants de 0 à n-1 pour permettre au client de choisir
+        switch (answer) {
+            case 0:
+                break;
+            case 1:
+                Categorie root = Categorie.getRoot();
+                System.out.println("Catégories de cuisines disponibles : ");
+                while (root.getChildren()) {
+
+                }
+                break;
+            case 2:
+                break;
+        }
 
         System.out.println("Veuillez sélectionner un restaurant en fonction de son index dans la table (première colonne)");
         System.out.println("Restaurant sélectionné : "); //TODO afficher le restaurant en fonction de l'index sélectionné...
