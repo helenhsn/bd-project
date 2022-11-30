@@ -15,7 +15,7 @@ public abstract class Menu {
     /**
      * Displays the menu to the console.
      */
-    public abstract void execute();
+    public abstract void execute() throws SQLException;
 
     /**
      * Getter for the menu name.

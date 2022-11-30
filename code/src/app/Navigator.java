@@ -1,5 +1,6 @@
 package app;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Stack;
@@ -28,7 +29,7 @@ public class Navigator {
      * This is like navigating to the given menu, and display it.
      * @param menu The menu we want to navigate to.
      */
-    public static void pushMenu(Menu menu) {
+    public static void pushMenu(Menu menu) throws SQLException {
         menus.push(menu);
         displayPath();
         menu.execute();
@@ -37,7 +38,7 @@ public class Navigator {
     /**
      * Removes the last menu. This is like going back to the previous menu.
      */
-    public static void popMenu() {
+    public static void popMenu() throws SQLException {
         menus.pop();
         if(menus.size() > 0) {
             displayPath();
@@ -49,7 +50,7 @@ public class Navigator {
      * Display again the last menu element.
      * This can be used for input failure for example.
      */
-    public static void reRoll() {
+    public static void reRoll() throws SQLException {
         if(menus.size() > 0) {
             menus.lastElement().execute();
         }

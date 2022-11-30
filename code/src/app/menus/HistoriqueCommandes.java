@@ -8,7 +8,7 @@ public class HistoriqueCommandes extends Menu {
         super("Historique des commandes");
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
 
     }
 }

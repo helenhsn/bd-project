@@ -12,7 +12,7 @@ public class ConnectionClient extends Menu {
         InfoSession.setInfoClient(idClient);
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
         System.out.println("Connecter vous à votre compte Grenoble Eat !\nVeuillez entrer votre email :");
         String mail = Navigator.getNextLine();
         System.out.println("Veuillez entrer votre mot de passe :");
