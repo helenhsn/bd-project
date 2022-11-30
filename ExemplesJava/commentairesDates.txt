@@ -1,0 +1,19 @@
+L'exemple donné se focalise sur l'utilisation de la classe
+java.util.Calendar, il est aussi possible d'utiliser :
+
+
+"
+- directement avec java.sql.Date, on ne dispose alors d'aucune opération
+sur les dates :
+              java.sql.Date d = new java.sql.Date(82, 0, 1);
+              ...
+              stmt.setDate(1, d);
+- en utilisant des chaînes de caractères, ce qui demande de bien être
+sûr des formats
+utilisés, en utilisant des expressions du type to_char(date,'DD-MM-YY')
+en SQL.
+Attention aux conflits entre les classes java.util.Date et
+java.sql.Date, la seconde
+étant une sous-classe de la première.
+"
+

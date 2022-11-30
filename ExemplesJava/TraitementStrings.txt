@@ -1,0 +1,25 @@
+1.  SQL propose un certain nombre de fonction pour faciliter la manipulation
+    des chaines de caracteres. Vous disposez en particulier
+    de la fonction rtrim( string1, string2) qui retourne la chaine string1
+    sans les occurrences de string2 a droite.
+    Exemple:
+      - Soit la table Test avec un attribut a de type CHAR(12).
+
+      - SQL> SELECT * FROM TEST;
+           A
+  	  ------------
+	  AAAAAAAABBBB
+
+      - Maintenant on va enlever les 'B' de la fin.
+      - SQL>  select rtrim( a, 'B') from test;
+
+          RTRIM(A,'B')
+          ------------
+          AAAAAAAA
+   
+      La fonction ltrim est equivalente mais enleve un motif apparaissant
+      a gauche.
+
+2. Remarque : l'utilisation du type CHAR en SQL impose d'avoir des chaînes 
+              de caracteres de la taille demandée. Le type VARCHAR n'impose
+	      pas cette contrainte.
