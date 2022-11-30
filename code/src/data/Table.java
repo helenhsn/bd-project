@@ -29,7 +29,7 @@ public class Table {
      * @return the selected attributes from each entry
      */
     public static ResultSet getAttributes(String name, String attributes) {
-        return getAttributes(name, attributes, null);
+        return getAttributes(name, attributes, null, -1, -1);
     }
 
 
@@ -40,6 +40,18 @@ public class Table {
      * @return the selected attributes from each entry verifying the given condition
      */
     public static ResultSet getAttributes(String name, String attributes, String condition) {
+        return getAttributes(name, attributes, condition, -1, -1);
+    }
+
+    /**
+     * @param name Table name
+     * @param attributes attributes to retrieve
+     * @param condition an SQL condition
+     * @param blockIndex the index of the selected block
+     * @param blockSize the number of line per block
+     * @return the selected attributes from each entry verifying the given condition in the selected block
+     */
+    public static ResultSet getAttributes(String name, String attributes, String condition, int blockIndex, int blockSize) {
 
         StringBuilder query = new StringBuilder();
         query.append("SELECT ");
@@ -51,6 +63,11 @@ public class Table {
 
         if (condition != null) {
             query.append(" WHERE ").append(condition);
+        }
+
+        if (blockIndex > 0 && blockSize > 0) {
+            query.append(" LIMIT ").append(blockSize)
+                    .append(" OFFSET ").append(blockSize * blockIndex);
         }
 
         return sendQuery(query.toString());
