@@ -28,14 +28,14 @@ public class Table {
      * @param attributes attributes to retreive
      * @return the selected attributes from each entry
      */
-    public static ResultSet getAttributes(String name, Collection<String> attributes) {
+    public static ResultSet getAttributes(String name, String attributes) {
         return getAttributes(name, attributes, null);
     }
 
 
     /**
      * @param name Table name
-     * @param attributes attributes to retreive
+     * @param attributes attributes to retrieve
      * @param condition an SQL condition
      * @return the selected attributes from each entry verifying the given condition
      */
@@ -57,9 +57,7 @@ public class Table {
     }
 
     public static ResultSet getAllAttributes(String name) {
-        LinkedList<String> all = new LinkedList<>();
-        all.add("*");
-        return getAttributes(name, all);
+        return getAttributes(name, "*");
     }
 
     private static Connection connection;
