@@ -1,43 +1,17 @@
 package data;
 
+import java.sql.ResultSet;
 import java.util.LinkedList;
-import java.util.Map;
+
 import java.util.EnumMap;
 
-public class Restaurant {
-    
-    public enum TypeInfoResto {
-        EMAIL,
-        NOM,
-        NUM,
-        NB_PLACES,
-        TEXTE,
-        SOMME_NOTE,
-        CARDINAL_NOTE
-
-    }
-
-    
-    /*
-            
-    private EnumMap<TypeInfoResto, Object> infos;
+public class Restaurants {
 
 
-    public Restaurant(String emailResto, String nomResto,int numResto, int nbPlacesAssises, String textePresentation, int sommeNote, int cardinalNote){
-        LinkedList<TypeInfoResto> cles = new LinkedList<TypeInfoResto>();
-        
-        for(TypeInfoResto info: TypeInfoResto.values()){
-            cles.add(info);
-        }
 
-        this.infos = new EnumMap<TypeInfoResto, Object>();
-        this.infos[TypeInfoResto.EMAIL] = emailResto;
-        this.infos[] = nomResto;
-        this.infos[] = numResto;
-        this.infos[] = nbPlacesAssises;
-        this.infos[] = textePresentation;
-        this.infos[] = sommeNote;
-        this.infos[] = cardinalNote;
+
+    public static ResultSet getRestaurantsOnCategories() {
+        ResultSet result = Table.getAttributes("Restaurants", "nomPlat, descriptionPlat, prixPlat", "emailResto = '" + emailResto + "'");
     }
 
     public String getEmail(){
@@ -83,8 +57,6 @@ public class Restaurant {
         return infos;
     }
 
-
-    */
             
 
 }

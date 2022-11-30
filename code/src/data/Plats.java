@@ -2,7 +2,7 @@ package data;
 
 import java.sql.ResultSet;
 
-public class Plat {
+public class Plats {
     private static final String tablePlats = "Plats";
     private static final String tableAllergene = "APourAllergene";
 

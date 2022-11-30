@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 /**
- * A simple class with a name connected to it's parent and children representing the hierachy of "Categorie"
+ * A simple class with a name connected to its parent and children representing the hierachy of "Categorie"
  */
 public class Categorie {
 
