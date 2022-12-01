@@ -43,9 +43,6 @@ public class Categorie {
         getDirectChildren();
         return children.iterator();
     }
-    public void setChild() {
-        // Todo requete java
-    }
 
 
     private String nom;

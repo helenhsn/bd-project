@@ -1,5 +1,6 @@
 package data;
 
+import java.nio.charset.CoderMalfunctionError;
 import java.util.*;
 
 import java.sql.*;
@@ -8,6 +9,8 @@ public class Table {
 
     public static void setConnection(Connection connection) {
         Table.connection = connection;
+        sendQuery("SET TRANSACTION ISOLATION LEVEL READ COMMITED");
+        sendQuery("SET AUTOCOMMIT OFF");
     }
     
 
@@ -29,7 +32,7 @@ public class Table {
      * @return the selected attributes from each entry
      */
     public static ResultSet getAttributes(String name, String attributes) {
-        return getAttributes(name, attributes, null, -1, -1);
+        return getAttributes(name, attributes, null, null, -1, -1);
     }
 
 
@@ -40,18 +43,30 @@ public class Table {
      * @return the selected attributes from each entry verifying the given condition
      */
     public static ResultSet getAttributes(String name, String attributes, String condition) {
-        return getAttributes(name, attributes, condition, -1, -1);
+        return getAttributes(name, attributes, condition, null, -1, -1);
     }
 
     /**
      * @param name Table name
      * @param attributes attributes to retrieve
      * @param condition an SQL condition
+     * @param order the quantity used to evaluate the order followed by " ASC" or " DESC"
+     * @return the selected attributes from each entry verifying the given condition
+     */
+    public static ResultSet getAttributes(String name, String attributes, String condition, String order) {
+        return getAttributes(name, attributes, condition, order, -1, -1);
+    }
+
+    /**
+     * @param name Table name
+     * @param attributes attributes to retrieve
+     * @param condition an SQL condition
+     * @param order the quantity used to evaluate the order followed by " ASC" or " DESC"
      * @param blockIndex the index of the selected block
      * @param blockSize the number of line per block
      * @return the selected attributes from each entry verifying the given condition in the selected block
      */
-    public static ResultSet getAttributes(String name, String attributes, String condition, int blockIndex, int blockSize) {
+    public static ResultSet getAttributes(String name, String attributes, String condition, String order, int blockIndex, int blockSize) {
 
         StringBuilder query = new StringBuilder();
         query.append("SELECT ");
@@ -63,6 +78,10 @@ public class Table {
 
         if (condition != null) {
             query.append(" WHERE ").append(condition);
+        }
+
+        if (order != null) {
+            query.append(" ORDER BY ").append(order);
         }
 
         if (blockIndex > 0 && blockSize > 0) {
