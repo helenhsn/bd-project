@@ -11,7 +11,7 @@ public class PasserCommande extends Menu {
 
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
 
         System.out.println("Quel type de commande souhaitez-vous passer ? ");
         System.out.println("    0. SurPlace");

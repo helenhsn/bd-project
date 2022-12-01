@@ -9,7 +9,7 @@ public class MenuCommandeLivraison extends PasserCommande {
         super();
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
         try {
             System.out.println("Veuillez entrer votre adresse de livraison : ");
             String adresseLivraison = Navigator.getNextLine();

@@ -5,18 +5,21 @@ import app.Navigator;
 import data.Categorie;
 
 import java.sql.*;
+import java.util.HashMap;
+
 public class AfficheRestaurants extends Menu {
 
     public AfficheRestaurants() {
         super("Restaurants");
     }
 
-    public void execute() {
+
+    public void execute() throws SQLException {
         System.out.println("Selon quelle critère voulez vous filtrer les restaurants, vous pouvez choisir plusieurs critères");
 
         System.out.println("0. Par jour d'ouverture");
         System.out.println("1. Type de cuisine");
-        System.out.println("2. Reccomandations par un algorithme performant d'aprés vos préférences passés");
+        System.out.println("2. Reccomandations par un algorithme performant d'aprés vos préférences passées");
 
         int answer = Navigator.getNextChoice(3);
 
@@ -24,11 +27,7 @@ public class AfficheRestaurants extends Menu {
             case 0:
                 break;
             case 1:
-                Categorie root = Categorie.getRoot();
-                System.out.println("Catégories de cuisines disponibles : ");
-                while (root.getChildren()) {
-
-                }
+                Navigator.pushMenu(new AfficheCategories(Categorie.getRoot()));
                 break;
             case 2:
                 break;

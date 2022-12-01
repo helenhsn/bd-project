@@ -9,7 +9,7 @@ public class MenuPrincipal extends Menu {
         super("Home");
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
         System.out.println("Welcome back !");
         System.out.println("    0. Parcourir la liste des restaurants");
         System.out.println("    1. Afficher mon historique de commandes");

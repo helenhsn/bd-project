@@ -9,7 +9,7 @@ public class CreationCompte extends Menu{
         super("Créer un compte");
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
 
         boolean gotMail = false;
         while (!gotMail){

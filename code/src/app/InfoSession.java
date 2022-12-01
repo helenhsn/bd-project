@@ -1,6 +1,6 @@
 package app;
 
-import data.Plat;
+import data.Plats;
 
 import java.sql.Connection;
 import java.util.HashMap;
@@ -30,12 +30,17 @@ public class InfoSession {
         infoClient = new InfoClient(idClient);
     }
 
+    public static void setChoixCategorie(boolean choix) {
+        infoClient.choixCategorie = choix;
+    }
+
     public static void setInfoCommande(String emailResto) {
         infoCommande = new InfoCommande(emailResto);
     }
 
     private static class InfoClient {
         private int idClient;
+        private boolean choixCategorie;
         public InfoClient(int idClient) {
             this.idClient = idClient;
         }
@@ -43,7 +48,7 @@ public class InfoSession {
 
     private static class InfoCommande {
         private String emailResto;
-        private HashMap<Integer, Plat> platsChoisis;
+        private HashMap<Integer, Plats> platsChoisis;
         public InfoCommande(String emailResto) {
             this.emailResto = emailResto;
         }

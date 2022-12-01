@@ -9,7 +9,7 @@ public class MenuCommandeSurPlace extends PasserCommande {
         super();
     }
 
-    public void execute() {
+    public void execute() throws SQLException {
 
         System.out.println("Veuillez indiquer le nombre de personnes mangeant sur place : ");
         int nbPersonnesSurPlace = Integer.valueOf(Navigator.getNextLine());
