@@ -9,3 +9,5 @@ public enum TypeInfoResto {
     SOMME_NOTE,
     CARDINAL_NOTE
 }
+// inutile maintenant non ?
+// genre tout l'enum
