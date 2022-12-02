@@ -4,13 +4,13 @@ import java.sql.*;
 
 import app.menus.Menu;
 
-public class HistoriqueCommandes extends Menu {
+public class CommandHistoric extends Menu {
 
-    public HistoriqueCommandes() {
+    public CommandHistoric() {
         super("Historique des commandes");
     }
 
-    public void execute() throws SQLException {
+    public void execute() {
 
     }
 }

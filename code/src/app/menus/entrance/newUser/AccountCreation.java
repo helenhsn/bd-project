@@ -11,7 +11,7 @@ public class AccountCreation extends Menu{
         super("Créer un compte");
     }
 
-    public void execute() throws SQLException {
+    public void execute() {
 
         boolean gotMail = false;
         while (!gotMail){

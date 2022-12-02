@@ -13,29 +13,34 @@ public class DisplayCategories extends Menu {
         super("Categorie");
         this.categorie = categorie;
     }
-    public void execute() throws SQLException {
+    public void execute() {
         Categorie currentCategory = categorie; //
         int indexCategory = 0;
         HashMap<Integer, Categorie> categories = new HashMap<>();
         System.out.println("Catégories de cuisines disponibles : ");
 
-        while (currentCategory.getChildren().hasNext()) {
-            System.out.println(indexCategory + ".   " + currentCategory.getNom());
-            categories.put(indexCategory, currentCategory);
-            indexCategory++;
-        }
-        System.out.println("Veuillez sélectionner une catégorie de cuisine");
-        int chosenCategory = Navigator.getNextChoice(indexCategory+1);
-        System.out.println("Souhaitez-vous regarder la liste des restaurants pour cette catégorie de cuisine ? [Y: yes / N:No]");
-        if (Navigator.getNextLine().equals("Y")) {
-        }
-        else {
-            System.out.println("Revenir en arrière ? [Y: yes / N:No]");
-            if (Navigator.getNextLine().equals("Y")) {
-                Navigator.reRoll();
-                return;
+        try {
+            while (currentCategory.getChildren().hasNext()) {
+                System.out.println(indexCategory + ".   " + currentCategory.getNom());
+                categories.put(indexCategory, currentCategory);
+                indexCategory++;
             }
-            Navigator.pushMenu(new DisplayCategories(categories.get(chosenCategory)));
+            System.out.println("Veuillez sélectionner une catégorie de cuisine");
+            int chosenCategory = Navigator.getNextChoice(indexCategory+1);
+            System.out.println("Souhaitez-vous regarder la liste des restaurants pour cette catégorie de cuisine ? [Y: yes / N:No]");
+            if (Navigator.getNextLine().equals("Y")) {
+            }
+            else {
+                System.out.println("Revenir en arrière ? [Y: yes / N:No]");
+                if (Navigator.getNextLine().equals("Y")) {
+                    Navigator.reRoll();
+                    return;
+                }
+                Navigator.pushMenu(new DisplayCategories(categories.get(chosenCategory)));
+            }
+        }
+        catch(SQLException e) {
+            System.out.println("Le serveur a rencontré une erreur interne.");
         }
     }
 }
