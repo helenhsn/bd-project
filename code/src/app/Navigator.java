@@ -30,7 +30,7 @@ public class Navigator {
      * This is like navigating to the given menu, and display it.
      * @param menu The menu we want to navigate to.
      */
-    public static void pushMenu(Menu menu) throws SQLException {
+    public static void pushMenu(Menu menu) {
         menus.push(menu);
         displayPath();
         menu.execute();
@@ -39,7 +39,7 @@ public class Navigator {
     /**
      * Removes the last menu. This is like going back to the previous menu.
      */
-    public static void popMenu() throws SQLException {
+    public static void popMenu() {
         menus.pop();
         if(menus.size() > 0) {
             displayPath();
@@ -51,10 +51,19 @@ public class Navigator {
      * Display again the last menu element.
      * This can be used for input failure for example.
      */
-    public static void reRoll() throws SQLException {
+    public static void reRoll() {
         if(menus.size() > 0) {
             menus.lastElement().execute();
         }
+    }
+
+    /**
+     * Reset the list of menus and put the given menu as new first menu
+     */
+    public static void reset(Menu newRoot) {
+        menus = new Stack<>();
+        menus.push(newRoot);
+        newRoot.execute();
     }
 
     /**
