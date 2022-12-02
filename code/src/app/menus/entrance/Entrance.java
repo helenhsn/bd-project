@@ -3,15 +3,16 @@ package app.menus.entrance;
 import app.Navigator;
 import app.menus.Menu;
 import app.menus.entrance.newUser.AccountCreation;
+import app.menus.entrance.connection.ConnectionClient;
 
 import java.sql.*;
 
 /**
  * First menu in the app !
  */
-public class HomePage extends Menu{
+public class Entrance extends Menu{
 
-    public HomePage() {
+    public Entrance() {
         super("Grenoble Eat");
     }
 
@@ -26,8 +27,7 @@ public class HomePage extends Menu{
                 System.out.println("Au revoir !");
                 break;
             case 1:
-                int idClient = 0; //TODO get l'id du client lors de sa connection !
-                // TODO Navigator.pushMenu(new ConnectionClient(idClient));
+                Navigator.pushMenu(new ConnectionClient());
                 break;
             case 2:
                 Navigator.pushMenu(new AccountCreation());
