@@ -1,5 +1,5 @@
 package app.menus;
-import java.sql.*;
+
 /**
  * Abstract class for menu.
  */

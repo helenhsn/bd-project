@@ -1,7 +1,5 @@
 package app.menus.entrance.connection.homePage.seeCommands;
 
-import java.sql.*;
-
 import app.menus.Menu;
 
 public class CommandHistoric extends Menu {

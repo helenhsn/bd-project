@@ -1,5 +1,6 @@
 package app.menus.entrance.connection;
 
+import app.InfoSession;
 import app.Navigator;
 import app.menus.Menu;
 import app.menus.entrance.connection.homePage.HomePage;
@@ -22,7 +23,7 @@ public class ConnectionClient extends Menu {
         try {
             if(Clients.exists(mail, password)) {
                 // le client s'est connecté !
-                // TODO infos sessions @hélène
+                InfoSession.setInfoClient(mail);
                 Navigator.pushMenu(new HomePage());
             }
             else {
