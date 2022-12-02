@@ -15,7 +15,7 @@ public class DisplayRestaurants extends Menu {
     }
 
 
-    public void execute() throws SQLException {
+    public void execute() {
         System.out.println("Selon quelle critère voulez vous filtrer les restaurants, vous pouvez choisir plusieurs critères");
 
         System.out.println("0. Par jour d'ouverture");

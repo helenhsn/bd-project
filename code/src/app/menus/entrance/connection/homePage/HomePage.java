@@ -3,6 +3,8 @@ package app.menus.entrance.connection.homePage;
 import app.Navigator;
 import app.menus.Menu;
 import app.menus.entrance.connection.homePage.accountDelete.AccountDeletion;
+import app.menus.entrance.connection.homePage.command.DisplayRestaurants;
+import app.menus.entrance.connection.homePage.seeCommands.CommandHistoric;
 
 import java.sql.*;
 
@@ -12,7 +14,7 @@ public class HomePage extends Menu {
         super("Home");
     }
 
-    public void execute() throws SQLException {
+    public void execute() {
         System.out.println("Bienvenue sur GrenobleEats® !");
         System.out.println("    0. Parcourir la liste des restaurants");
         System.out.println("    1. Afficher mon historique de commandes");
@@ -21,10 +23,10 @@ public class HomePage extends Menu {
 
         switch(Navigator.getNextChoice(4)) {
             case 0:
-                // TODO Navigator.pushMenu(new DisplayRestaurants());
+                Navigator.pushMenu(new DisplayRestaurants());
                 break;
             case 1:
-                // TODO Navigator.pushMenu(new HistoriqueCommandes());
+                Navigator.pushMenu(new CommandHistoric());
                 break;
             case 2:
                 Navigator.pushMenu(new AccountDeletion());

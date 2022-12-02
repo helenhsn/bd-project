@@ -16,7 +16,7 @@ public class Entrance extends Menu{
         super("Grenoble Eat");
     }
 
-    public void execute() throws SQLException {
+    public void execute() {
         System.out.println("Bienvenue dans GrenobleEat !\nVeuillez vous connecter ou créer un compte !");
         System.out.println("    0. Quitter");
         System.out.println("    1. Se connecter");
