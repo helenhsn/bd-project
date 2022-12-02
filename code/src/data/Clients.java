@@ -18,8 +18,8 @@ public class Clients {
         Table.sendQuery(String.format("INSERT INTO %s VALUES (%d)", tableIdClients, newId));
     }
 
-    public static void remove(int idClient) {
-        Table.sendQuery(String.format("DELETE FROM %s WHERE idClient='%d'", tableClients, idClient));
+    public static void remove(String email) {
+        Table.sendQuery(String.format("DELETE FROM %s WHERE emailClient='%s'", tableClients, email));
     }
 
     public ResultSet getFavoriteCategories() {

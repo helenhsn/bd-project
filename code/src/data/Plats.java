@@ -11,7 +11,11 @@ public class Plats {
      * @return La liste des attributs "idPlat, nomPlat, descriptionPlat, prixPlat" de chaque plat proposé par le resto
      */
     public ResultSet get(String emailResto) {
-        return Table.getAttributes(tableAllergene, "idPlat, nomPlat, descriptionPlat, prixPlat", "emailResto = '" + emailResto + "'");
+        return Table.getAttributes(tablePlats, "idPlat, nomPlat, prixPlat", "emailResto = '" + emailResto + "'");
+    }
+
+    public ResultSet getDescription(String idPlat) {
+        return Table.getAttributes(tablePlats, "descriptionPlat", "idPlat = '" + idPlat + "'");
     }
 
     public ResultSet getAllergenes(String idPlat) {
