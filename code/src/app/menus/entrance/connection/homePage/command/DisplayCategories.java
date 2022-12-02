@@ -1,14 +1,15 @@
-package app.menus;
+package app.menus.entrance.connection.homePage.command;
 
 import app.Navigator;
+import app.menus.Menu;
 import data.Categorie;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 
-public class AfficheCategories extends Menu {
+public class DisplayCategories extends Menu {
     private Categorie categorie;
-    public AfficheCategories(Categorie categorie) {
+    public DisplayCategories(Categorie categorie) {
         super("Categorie");
         this.categorie = categorie;
     }
@@ -34,7 +35,7 @@ public class AfficheCategories extends Menu {
                 Navigator.reRoll();
                 return;
             }
-            Navigator.pushMenu(new AfficheCategories(categories.get(chosenCategory)));
+            Navigator.pushMenu(new DisplayCategories(categories.get(chosenCategory)));
         }
     }
 }

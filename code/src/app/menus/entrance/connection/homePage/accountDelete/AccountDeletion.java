@@ -1,11 +1,13 @@
-package app.menus;
+package app.menus.entrance.connection.homePage.accountDelete;
 
 import app.Navigator;
+import app.menus.Menu;
+
 import java.sql.*;
 
-public class SuppressionCompte extends Menu {
+public class AccountDeletion extends Menu {
 
-    public SuppressionCompte() {
+    public AccountDeletion() {
         super("Supprimer son compte");
     }
 

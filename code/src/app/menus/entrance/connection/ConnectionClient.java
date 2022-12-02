@@ -1,7 +1,9 @@
-package app.menus;
+package app.menus.entrance.connection;
 
 import app.InfoSession;
 import app.Navigator;
+import app.menus.Menu;
+
 import java.sql.*;
 
 public class ConnectionClient extends Menu {

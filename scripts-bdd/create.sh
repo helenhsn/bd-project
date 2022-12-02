@@ -46,7 +46,7 @@ CREATE TABLE Horaires(
 );
 
 CREATE TABLE IdentifiantsClient(
-    idClient INTEGER NOT NULL,
+    idClient INTEGER AUTO_INCREMENT,
     PRIMARY KEY(idClient)
 );
 
