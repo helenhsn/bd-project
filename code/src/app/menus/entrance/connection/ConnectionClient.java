@@ -7,11 +7,11 @@ import app.menus.Menu;
 import java.sql.*;
 
 public class ConnectionClient extends Menu {
-    private int idClient;
-    public ConnectionClient(int idClient) {
+    private String emailClient;
+    public ConnectionClient(String emailClient) {
         super("Connection");
-        this.idClient = idClient;
-        InfoSession.setInfoClient(idClient);
+        this.emailClient = emailClient;
+        InfoSession.setInfoClient(emailClient);
     }
 
     public void execute() throws SQLException {
