@@ -3,8 +3,6 @@ package app.menus.entrance.newUser;
 import app.Navigator;
 import app.menus.Menu;
 
-import java.sql.*;
-
 public class AccountCreation extends Menu{
 
     public AccountCreation() {
