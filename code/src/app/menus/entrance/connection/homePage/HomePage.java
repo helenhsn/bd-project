@@ -1,16 +1,19 @@
-package app.menus;
+package app.menus.entrance.connection.homePage;
 
 import app.Navigator;
+import app.menus.Menu;
+import app.menus.entrance.connection.homePage.accountDelete.AccountDeletion;
+
 import java.sql.*;
 
-public class MenuPrincipal extends Menu {
+public class HomePage extends Menu {
 
-    public MenuPrincipal() {
+    public HomePage() {
         super("Home");
     }
 
     public void execute() throws SQLException {
-        System.out.println("Welcome back !");
+        System.out.println("Bienvenue sur GrenobleEats® !");
         System.out.println("    0. Parcourir la liste des restaurants");
         System.out.println("    1. Afficher mon historique de commandes");
         System.out.println("    2. Supprimer mon compte");
@@ -18,13 +21,13 @@ public class MenuPrincipal extends Menu {
 
         switch(Navigator.getNextChoice(4)) {
             case 0:
-                Navigator.pushMenu(new AfficheRestaurants());
+                // TODO Navigator.pushMenu(new DisplayRestaurants());
                 break;
             case 1:
-                Navigator.pushMenu(new HistoriqueCommandes());
+                // TODO Navigator.pushMenu(new HistoriqueCommandes());
                 break;
             case 2:
-                Navigator.pushMenu(new SuppressionCompte());
+                Navigator.pushMenu(new AccountDeletion());
                 break;
             case 3:
                 System.out.println("Déconnection... À une prochaine fois !");

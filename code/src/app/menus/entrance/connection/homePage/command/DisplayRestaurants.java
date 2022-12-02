@@ -1,15 +1,16 @@
-package app.menus;
+package app.menus.entrance.connection.homePage.command;
 
 import app.InfoSession;
 import app.Navigator;
+import app.menus.Menu;
 import data.Categorie;
 
 import java.sql.*;
 import java.util.HashMap;
 
-public class AfficheRestaurants extends Menu {
+public class DisplayRestaurants extends Menu {
 
-    public AfficheRestaurants() {
+    public DisplayRestaurants() {
         super("Restaurants");
     }
 
@@ -27,7 +28,7 @@ public class AfficheRestaurants extends Menu {
             case 0:
                 break;
             case 1:
-                Navigator.pushMenu(new AfficheCategories(Categorie.getRoot()));
+                Navigator.pushMenu(new DisplayCategories(Categorie.getRoot()));
                 break;
             case 2:
                 break;
@@ -49,7 +50,7 @@ public class AfficheRestaurants extends Menu {
             case 2:
                 String emailResto = ""; //TODO get email resto pour passer les commandes
                 InfoSession.setInfoCommande(emailResto);
-                Navigator.pushMenu(new PasserCommande());
+                // TODO Navigator.pushMenu(new PasserCommande());
                 break;
         }
     }  

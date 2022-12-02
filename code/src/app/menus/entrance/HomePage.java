@@ -1,14 +1,17 @@
-package app.menus;
+package app.menus.entrance;
 
 import app.Navigator;
+import app.menus.Menu;
+import app.menus.entrance.newUser.AccountCreation;
+
 import java.sql.*;
 
 /**
  * First menu in the app !
  */
-public class Entrance extends Menu{
+public class HomePage extends Menu{
 
-    public Entrance() {
+    public HomePage() {
         super("Grenoble Eat");
     }
 
@@ -24,10 +27,10 @@ public class Entrance extends Menu{
                 break;
             case 1:
                 int idClient = 0; //TODO get l'id du client lors de sa connection !
-                Navigator.pushMenu(new ConnectionClient(idClient));
+                // TODO Navigator.pushMenu(new ConnectionClient(idClient));
                 break;
             case 2:
-                Navigator.pushMenu(new CreationCompte());
+                Navigator.pushMenu(new AccountCreation());
                 break;
         }
     }
