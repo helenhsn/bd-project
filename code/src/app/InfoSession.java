@@ -26,8 +26,8 @@ public class InfoSession {
         connection = conn;
     }
 
-    public static void setInfoClient(int idClient) {
-        infoClient = new InfoClient(idClient);
+    public static void setInfoClient(String emailClient) {
+        infoClient = new InfoClient(emailClient);
     }
 
     public static void setChoixCategorie(boolean choix) {
@@ -39,10 +39,10 @@ public class InfoSession {
     }
 
     private static class InfoClient {
-        private int idClient;
+        private String emailClient;
         private boolean choixCategorie;
-        public InfoClient(int idClient) {
-            this.idClient = idClient;
+        public InfoClient(String emailClient) {
+            this.emailClient = emailClient;
         }
     }
 
