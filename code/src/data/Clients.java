@@ -26,8 +26,8 @@ public class Clients {
         return null; //todo
     }
 
-    public boolean exists(String email, String mdp) {
-        ResultSet result = Table.getAttributes(Clients, "COUNT(*)", String.format("emailClient='%s', mdp='%s'", email, mdp));
+    public boolean exists(String email, String mdp) throws SQLException {
+        ResultSet result = Table.getAttributes(tableClients, "COUNT(*)", String.format("emailClient='%s', mdp='%s'", email, mdp));
         result.next();
         return result.getInt(1) > 0;
     }
