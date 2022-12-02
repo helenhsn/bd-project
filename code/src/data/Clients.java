@@ -15,11 +15,21 @@ public class Clients {
         result.next();
         int newId = result.getInt(1) + 1;
         Table.sendQuery(String.format("INSERT INTO %s VALUES (%d, '%s', '%s', '%s', '%s')", tableClients, newId, mdp, nom, prenom, adresse));
-        Table.sendQuery(String.format("INSERT INTO %s VALUES (%d)", tableClients, newId));
+        Table.sendQuery(String.format("INSERT INTO %s VALUES (%d)", tableIdClients, newId));
     }
 
     public void remove(int idClient) {
         Table.sendQuery(String.format("DELETE FROM %s WHERE idClient='%d'", tableClients, idClient));
+    }
+
+    public ResultSet getFavoriteCategories() {
+        return null; //todo
+    }
+
+    public boolean exists(String email, String mdp) {
+        ResultSet result = Table.getAttributes(Clients, "COUNT(*)", String.format("emailClient='%s', mdp='%s'", email, mdp));
+        result.next();
+        return result.getInt(1) > 0;
     }
 
 }
