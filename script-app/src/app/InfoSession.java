@@ -30,27 +30,30 @@ public class InfoSession {
         infoClient = new InfoClient(emailClient);
     }
 
-    public static void setChoixCategorie(boolean choix) {
-        infoClient.choixCategorie = choix;
+    public static void setInfoCommande(String emailResto) {
+        infoCommande = new InfoCommande(emailResto);
     }
 
-    public static void setInfoCommande(String emailRestaurant) {
-        infoCommande = new InfoCommande(emailRestaurant);
+    public static void clearClientInfo() {
+        infoClient = null;
     }
 
-    private static class InfoClient {
+    public static class InfoClient {
         private String emailClient;
-        private boolean choixCategorie;
+
         public InfoClient(String emailClient) {
             this.emailClient = emailClient;
         }
+        public String getEmail() {
+            return emailClient;
+        }
     }
 
-    private static class InfoCommande {
-        private String emailRestaurant;
+    public static class InfoCommande {
+        private String emailResto;
         private HashMap<Integer, Plats> platsChoisis;
-        public InfoCommande(String emailRestaurant) {
-            this.emailRestaurant = emailRestaurant;
+        public InfoCommande(String emailResto) {
+            this.emailResto = emailResto;
         }
     }
 }

@@ -5,8 +5,6 @@ import app.menus.Menu;
 import app.menus.entrance.newUser.AccountCreation;
 import app.menus.entrance.connection.ConnectionClient;
 
-import java.sql.*;
-
 /**
  * First menu in the app !
  */

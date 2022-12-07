@@ -37,7 +37,7 @@ CREATE TABLE Allergene(
 );
 
 CREATE TABLE Horaires(
-    horaireOuverture INTEGER NOT NULL,
+    horaireOuverture INTEGER NOT NULL CHECK(horaireOuverture >= 0 AND horaireFermeture < 24),
     jourOuverture VARCHAR(8) CHECK(
         jourOuverture IN ('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')
     ) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE Clients(
     nomClient VARCHAR(32) NOT NULL,
     prenomClient VARCHAR(32) NOT NULL,
     adresseClient VARCHAR(128) NOT NULL,
-    PRIMARY KEY(idClient),
+    PRIMARY KEY(emailClient),
     FOREIGN KEY(idClient) REFERENCES IdentifiantsClient(idClient) 
 );
 
@@ -117,6 +117,17 @@ CREATE TABLE CommandesLivraison(
     FOREIGN KEY(idClient) REFERENCES IdentifiantsClient(idClient)
 );
 
+CREATE TABLE InformationsLivraisons(
+    emailResto VARCHAR(64),
+    idClient INTEGER,
+    dateCommande DATE NOT NULL,
+    heureCommande INTEGER NOT NULL CHECK(heureCommande >= 0 AND heureCommande < 24),
+    texteLivraison VARCHAR(64),
+    PRIMARY KEY(emailResto, idClient, dateCommande, heureCommande, texteLivraison),
+    FOREIGN KEY(emailResto) REFERENCES Restaurants(emailResto),
+    FOREIGN KEY(idClient) REFERENCES IdentifiantsClient(idClient)
+)
+
 CREATE TABLE CommandesSurPlace(
     emailResto VARCHAR(64),
     idClient INTEGER,
@@ -132,7 +143,7 @@ CREATE TABLE CommandesSurPlace(
 CREATE TABLE EstCategorieFilleDe(
     nomFille VARCHAR(32),
     nomMere VARCHAR(32),
-    PRIMARY KEY(nomFille),
+    PRIMARY KEY(nomFille, nomMere),
     FOREIGN KEY(nomFille) REFERENCES CategorieCuisine(nomCategorie),
     FOREIGN KEY(nomMere) REFERENCES CategorieCuisine(nomCategorie)
 );
@@ -149,7 +160,7 @@ CREATE TABLE APourAllergene(
 CREATE TABLE APourTypeCommande(
     emailResto VARCHAR(64),
     typeCommandesDisponibles VARCHAR(9),
-    PRIMARY KEY(emailResto),
+    PRIMARY KEY(emailResto, typeCommandesDisponibles),
     FOREIGN KEY(emailResto) REFERENCES Restaurants(emailResto),
     FOREIGN KEY(typeCommandesDisponibles) REFERENCES TypeCommandesResto(typeCommandesDisponibles)
 );

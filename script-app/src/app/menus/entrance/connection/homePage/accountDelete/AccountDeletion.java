@@ -1,10 +1,9 @@
 package app.menus.entrance.connection.homePage.accountDelete;
 
+import app.InfoSession;
 import app.Navigator;
 import app.menus.Menu;
-import app.menus.entrance.Entrance;
-
-import java.sql.*;
+import data.Clients;
 
 public class AccountDeletion extends Menu {
 
@@ -13,13 +12,15 @@ public class AccountDeletion extends Menu {
     }
 
     public void execute() {
-        System.out.println("Êtes-vous sûr de vouloir supprimer votre compte ? Veuillez taper 0 pour oui et 1 pour non.");
+        System.out.println("Êtes-vous sûr de vouloir supprimer votre compte ?\n 0. oui\n 1. non");
         switch(Navigator.getNextChoice(2)) {
             case 0:
-                //TODO supprimer le compte
+                Clients.remove(InfoSession.getInfoClient().getEmail());
+                Navigator.pushMenu(new AccountDeleted());
                 break;
             case 1:
-                Navigator.reset(new Entrance());
+                Navigator.popMenu();
+                break;
         }
     }
 }
