@@ -34,8 +34,8 @@ public class InfoSession {
         infoClient.choixCategorie = choix;
     }
 
-    public static void setInfoCommande(String emailResto) {
-        infoCommande = new InfoCommande(emailResto);
+    public static void setInfoCommande(String emailRestaurant) {
+        infoCommande = new InfoCommande(emailRestaurant);
     }
 
     private static class InfoClient {
@@ -47,10 +47,10 @@ public class InfoSession {
     }
 
     private static class InfoCommande {
-        private String emailResto;
+        private String emailRestaurant;
         private HashMap<Integer, Plats> platsChoisis;
-        public InfoCommande(String emailResto) {
-            this.emailResto = emailResto;
+        public InfoCommande(String emailRestaurant) {
+            this.emailRestaurant = emailRestaurant;
         }
     }
 }

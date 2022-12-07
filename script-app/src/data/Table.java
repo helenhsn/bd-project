@@ -7,6 +7,13 @@ import java.sql.*;
 
 public class Table {
 
+    public static final String Clients = "Clients";
+    public static final String IdClients = "IdentifiantsClient";
+    public static final String APourEvaluation = "APourEvaluation";
+    public static final String ContenuCommande = "ContenuCommande";
+    public static final String Commandes = "Commandes";
+    public static final String Restaurants = "Restaurant";
+
     public static void setConnection(Connection connection) {
         Table.connection = connection;
         sendQuery("SET TRANSACTION ISOLATION LEVEL READ COMMITED");
@@ -69,7 +76,7 @@ public class Table {
     public static ResultSet getAttributes(String name, String attributes, String condition, String order, int blockIndex, int blockSize) {
 
         StringBuilder query = new StringBuilder();
-        query.append("SELECT ");
+        query.append("SELECT DISTINCT");
         query.append(" ").append(attributes == null ? "*" : attributes).append(" ");
 
         // Table selection

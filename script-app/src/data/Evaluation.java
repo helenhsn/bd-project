@@ -3,7 +3,7 @@ package data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Clients {
+public class Evaluation {
 
     private static final String tableClients = "Clients";
     private static final String tableIdClients = "IdentifiantsClient";

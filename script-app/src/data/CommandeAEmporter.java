@@ -8,7 +8,7 @@ public class CommandeAEmporter {
     // Ajouter getters et setters ...
 
     public enum Attribut {
-        EmailResto("emailResto"),
+        EmailRestaurant("emailRestaurant"),
         IdClient("idClient"),
         DateCommande("dateCommande"),
         HeureCommande("heureCommande"),

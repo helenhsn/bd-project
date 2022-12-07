@@ -1,6 +1,6 @@
 package data;
 
-public enum TypeInfoResto {
+public enum TypeInfoRestaurant {
     EMAIL,
     NOM,
     NUM,

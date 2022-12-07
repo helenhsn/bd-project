@@ -45,11 +45,11 @@ public class DisplayRestaurants extends Menu {
 
         switch (Navigator.getNextChoice(2)) {
             case 1:
-                Navigator.reRoll(); //TODO peut-être que faudrait reroll en tenant compte de ses choix d'affichage pour les restos ?
+                Navigator.reRoll(); //TODO peut-être que faudrait reroll en tenant compte de ses choix d'affichage pour les Restaurants ?
                 break;
             case 2:
-                String emailResto = ""; //TODO get email resto pour passer les commandes
-                InfoSession.setInfoCommande(emailResto);
+                String emailRestaurant = ""; //TODO get email Restaurant pour passer les commandes
+                InfoSession.setInfoCommande(emailRestaurant);
                 // TODO Navigator.pushMenu(new PasserCommande());
                 break;
         }

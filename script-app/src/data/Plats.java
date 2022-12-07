@@ -7,11 +7,11 @@ public class Plats {
     private static final String tableAllergene = "APourAllergene";
 
     /**
-     * @param emailResto L'id du resto
-     * @return La liste des attributs "idPlat, nomPlat, descriptionPlat, prixPlat" de chaque plat proposé par le resto
+     * @param emailRestaurant L'id du Restaurant
+     * @return La liste des attributs "idPlat, nomPlat, descriptionPlat, prixPlat" de chaque plat proposé par le Restaurant
      */
-    public ResultSet get(String emailResto) {
-        return Table.getAttributes(tablePlats, "idPlat, nomPlat, prixPlat", "emailResto = '" + emailResto + "'");
+    public ResultSet get(String emailRestaurant) {
+        return Table.getAttributes(tablePlats, "idPlat, nomPlat, prixPlat", "emailRestaurant = '" + emailRestaurant + "'");
     }
 
     public ResultSet getDescription(String idPlat) {
